@@ -1,25 +1,40 @@
 <html>
   <head>
+
     <style type="text/css">
       #statuses {
-        border: 1px black solid;
-        background: #ddd;
+        border: 10px black solid;
+        background: #FFF;
         color: green;
       }
       #statuses .error {
         color: red;
       }
     </style>
+
+    <style type="text/css">
+      #chuanwu {
+        border: 10px black solid;
+        background: #FFF;
+        color: green;
+      }
+      #chuanwu .error {
+        color: red;
+      }
+    </style>
+
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
     <script type='text/javascript' src='jQueryRotate.js'></script>
     <script type='text/javascript'>
 
     function log(text, error) {
 
+      var tmp = $("#statuses").get(0)
+      console.log("statuses is #statuses",tmp)
+	  console.log("text is %s",text)
       $("#statuses").get(0).appendChild(document.createElement("div")).innerHTML = text;
       if (error) {
         $("#statuses").get(0).lastChild.className = "error";
-
       }
     }
     $(document).ready(function()
@@ -37,6 +52,8 @@
       .rotate({
           animateTo: 120,
           callback: function(){
+			  <!--100%-->
+            console.log("%s",this.Wilq32.PhotoEffect._parameters.center[0]);
             log(this.Wilq32.PhotoEffect._parameters.center[0]);
           }
       })
@@ -82,6 +99,10 @@
 
   <div id="statuses">
     Log:
+  </div>
+  <br>
+  <div id="chuanwu">
+	  chuanwu testing
   </div>
 </body>
 </html>
