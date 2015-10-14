@@ -1,0 +1,154 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2015 China B2B创新创业峰会</title>
+    <script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/fileupload.js"></script>
+    <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: url(images/body_bg.jpg) 0px 0px repeat-x #000;
+    }
+
+    .main_bg {
+        background: url(images/main_bg_new.jpg) top center no-repeat;
+        height: 1000px;
+        background-size: 1200px 1000px;
+    }
+
+    .main {
+        width: 1000px;
+        height: 1000px;
+        margin: 0 auto;
+    }
+
+    .num_mask {
+        background: url(images/num_mask_new.png) 0px 0px no-repeat;
+        height: 184px;
+        width: 740px;
+        position: absolute;
+        left: 50%;
+        top: 340px;
+        margin-left: -370px;
+        z-index: 9;
+    }
+
+    .num_box {
+        height: 500px;
+        margin: 340px auto 0;
+        width: 834px;
+        z-index: 8;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .num {
+        background: url(images/num.png) top center repeat-y;
+        width: 139px;
+        height: 243px;
+        float: left;
+    }
+
+    .btn {
+        margin: 370px auto 0;
+        width: 600px;
+        height: 120px;
+        cursor: pointer;
+        clear: both;
+    }
+
+    .phone {
+        display: none;
+        color: #fff;
+        position: absolute;
+        top: 245px;
+        font-size: 63px;
+        width: 300px;
+        text-align: center;
+        margin-left: -150px;
+        left: 50%;
+    }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="main_bg">
+        <div class="main">
+            <div id="res" style="text-align:center;color:#fff;padding-top:15px;"></div>
+            <!-- <div class="num_mask"></div> -->
+            <div class="phone">177770023</div>
+            <div class="num_box">
+                <div class="num"></div>
+                <div class="num"></div>
+                <div class="num"></div>
+                <div class="num"></div>
+                <div class="num"></div>
+                <div class="num"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+$(document).ready(function() {
+
+    // function numRand() {
+    //     var x = 999999;
+    //     var y = 111111;
+    //     var rand = parseInt(Math.random() * (x - y + 1) + y);
+    //     return rand;
+    // }
+    var isBegin = false;
+    $(function() {
+        var u = 265;
+        $('.btn').click(function() {
+            if (isBegin) return false;
+            isBegin = true;
+            $(".num").css('backgroundPositionY', 0);
+            // var result = numRand();
+            $.ajax({
+                type: "GET",
+                url: "http://test.daji.im/api/misc/phone_and_code_list/",
+                dataType: "jsonp",
+                complete: function(d) {
+                    console.log(phone)
+                    console.log(code)
+
+                    setTimeout(function(){
+                        $('.phone').html(phone).show();
+                    }, 26000)
+
+                    var result = code;
+
+                    var num_arr = (result + '').split('');
+                    $(".num").each(function(index) {
+                        var _num = $(this);
+                        setTimeout(function() {
+                            _num.animate({
+                                backgroundPositionY: (u * 60) - (u * num_arr[index])
+                            }, {
+                                duration: 6000 + index * 3000,
+                                easing: "easeInOutCirc",
+                                complete: function() {
+                                    if (index == 5) isBegin = false;
+                                }
+                            });
+                        }, index * 300);
+                    });
+                }
+            });
+
+        });
+    });
+});
+</script>
