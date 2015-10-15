@@ -7,7 +7,9 @@
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/fileupload.js"></script>
     <style>
-    html,
+    html {
+    overflow-y:hidden;
+    }
     body {
         margin: 0;
         padding: 0;
@@ -84,7 +86,7 @@
         <div class="main">
             <div id="res" style="text-align:center;color:#fff;padding-top:15px;"></div>
             <!-- <div class="num_mask"></div> -->
-            <div class="phone">177770023</div>
+            <div class="phone">15995577264</div>
             <div class="num_box">
                 <div class="num"></div>
                 <div class="num"></div>
@@ -111,14 +113,16 @@ $(document).ready(function() {
     var isBegin = false;
     $(function() {
         var u = 265;
-        $('.btn').click(function() {
+
+        $('html').keydown(function() {
+            $('.phone').html(phone).hide()
             if (isBegin) return false;
             isBegin = true;
             $(".num").css('backgroundPositionY', 0);
             // var result = numRand();
             $.ajax({
                 type: "GET",
-                url: "http://test.daji.im/api/misc/phone_and_code_list/",
+                url:  "http://test.daji.im/api/misc/phone_and_code_list/",
                 dataType: "jsonp",
                 complete: function(d) {
                     console.log(phone)
