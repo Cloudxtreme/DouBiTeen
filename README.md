@@ -27,7 +27,7 @@ DouBiTeen
 
 ## 3. 抽奖
 
-doing...
+![name](https://raw.githubusercontent.com/chuanwu/DouBiTeen/master/repo/static/samples/lottery.png)
 
 ## License
 
