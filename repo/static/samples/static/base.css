@@ -1,0 +1,184 @@
+
+body{
+    margin:0;
+    background-color:#f5f5f5;
+    font-family: 'microsoft yahei';
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+.topline{
+    height:6px;
+    background-color:#58db8f;
+}
+
+.tophead{
+    height:155px;
+    background-color:#1f2532;
+
+}
+
+.tophead .logo{
+    position: absolute;
+    left: 0;
+    top: 87px;
+    height: 34px;
+}
+.tophead .logo span {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    color: #e7e7e7;
+    font-size: 32px;
+    vertical-align: top;
+    border-left: 1px solid #484e5a;
+    padding-left: 18px;
+    margin-left: 18px;;
+}
+
+.th1{
+    width:1026px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.left-nav {
+    position: absolute;
+    left: 72px;
+    top: 24px;
+
+}
+.left-nav li {
+    float:left;
+    width: 64px;
+    font-size: 16px;
+}
+.left-nav li:first-child {
+    margin-right: 42px;
+}
+.left-nav a {
+    color: #7d8089;
+}
+.left-nav .current a {
+    color: #e7e7e7;
+}
+
+.tophead .nav-create-project {
+    position: absolute;
+    right: 0;
+    top: 82px;
+    display: inline-block;
+    height: 32px;
+    width: 134px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #5ada8f;
+    text-align: center;
+    border-radius:5px;
+}
+.tophead .nav-create-project span {
+    display: inline-block;
+    font-size: 20px;
+    width: 30px;
+}
+.tophead .menu{
+    position: absolute;
+    right: 0;
+    top: 24px;
+    color: rgb(147,147,147);
+}
+
+.tophead .menu li{
+    list-style-type: none;
+    display: inline;
+}
+
+.menu .myevents{
+    margin-right:20px;
+}
+
+.myevents a{
+    color: rgb(147,147,147);
+}
+
+.pdrop{
+    position: relative;
+    top: -3px;
+}
+.add_event{
+    position: relative;
+    top: 93px;
+    left: 790px;
+}
+.main{
+    width:1026px;
+    margin:0 auto;
+    padding-top:50px;
+}
+.hide{
+    display:none ;
+}
+
+.hhide{
+    display:none !important;
+}
+.logout a{
+    color:rgb(147,147,147);
+}
+.uname{
+    cursor:default;
+}
+.logout{
+    margin-left: 15px;
+}
+.toright{
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.footer{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+.beian{
+    font-size: 13px;
+    margin-top: 10px;
+}
+.beian a {
+    text-decoration: none;
+    color:black;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 300px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 80px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
