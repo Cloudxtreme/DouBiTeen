@@ -1,0 +1,157 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2015 China B2B创新创业峰会</title>
+    <script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/fileupload.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-y:hidden;
+        }
+
+        body {
+            background: url(images/body_bg.jpg) 0px 0px repeat-x #000;
+        }
+
+        .main_bg {
+            background: url(images/main_bg2.jpg) top center no-repeat;
+            height: 1000px;
+            background-size: 1600px 890px;
+            /*margin-top: -211px;*/
+        }
+
+        .main {
+            width: 1000px;
+            height: 1000px;
+            margin: -180 auto;
+        }
+
+        .num_mask {
+            background: url(images/num_mask_new.png) 0px 0px no-repeat;
+            height: 184px;
+            width: 740px;
+            position: absolute;
+            left: 50%;
+            top: 255px;
+            margin-left: -370px;
+            z-index: 9;
+        }
+
+        .num_box {
+            height: 150px;
+            margin: 250px auto;
+            width: 500px;
+            z-index: 8;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .num {
+            background: url(images/name.jpg) top center repeat-y;
+            width: 500px;
+            height: 100%;
+            float: left;
+            background-size: 260px 14162px;
+            display: none;
+            /*border:1px solid red;*/
+
+        }
+
+        .btn {
+            margin: 370px auto 0;
+            width: 600px;
+            height: 120px;
+            cursor: pointer;
+            clear: both;
+        }
+
+        .phone {
+            display: none;
+            color: #fff;
+            position: absolute;
+            top: 130px;
+            font-size: 63px;
+            width: 300px;
+            text-align: center;
+            margin-left: -165px;
+            left: 50%;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="main_bg">
+        <div class="main">
+            <div id="res" style="text-align:center;color:#fff;padding-top:15px;"></div>
+            <!-- <div class="num_mask"></div> -->
+            <!-- <div class="phone">15995577264</div> -->
+            <div class="num_box">
+                <div class="num"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+$(document).ready(function() {
+    // function numRand() {
+    //     var x = 999999;
+    //     var y = 111111;
+    //     var rand = parseInt(Math.random() * (x - y + 1) + y);
+    //     return rand;
+    // }
+    var isBegin = false;
+
+
+    $(function() {
+        var u = 146;
+        // var u = 292;
+
+        $('html').keydown(function() {
+            // $('.phone').html(phone).hide()
+            if (isBegin) return false;
+            isBegin = true;
+            $(".num").css('backgroundPositionY', 0);
+            $(".num").show();
+
+            setTimeout(function() {
+                $.ajax({
+                    type: "GET",
+                    url:  "http://test.daji.im/api/misc/phone_and_code_list/",
+                    dataType: "jsonp",
+                    complete: function(d) {
+                        console.log(code);
+                        code = code - 1; 
+                        $(".num").each(function(index) {
+                            var _num = $(this);
+                            _num.animate({
+                                backgroundPositionY:(u * 97 * 6) - parseFloat(u * code)
+                            }, {
+                                duration: 6000 + index * 3000,
+                                easing: "easeInOutCirc",
+                                complete: function() {
+                                    isBegin = false;
+                                }
+                            });
+                        });
+                    }
+                });
+
+            }, 1000);
+
+
+
+        });
+    });
+});
+</script>
